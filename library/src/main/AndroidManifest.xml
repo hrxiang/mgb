@@ -1,0 +1,39 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.hrxiang.android">
+    <!--允许访问网络状态权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--允许访问网络权限-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--允许访问WIFI 状态的权限-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--允许读外部存储权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--允许写外部存储权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--获取设备的device id-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--允许振动-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+
+    <application>
+
+        <activity
+                android:name="com.yalantis.ucrop.UCropActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <provider
+                android:name=".base.utils.provider.FileProvider"
+                android:authorities="${applicationId}.fileProvider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <!--元数据-->
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths"/>
+        </provider>
+
+    </application>
+</manifest>
+

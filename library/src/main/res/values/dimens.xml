@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--虚拟键盘最小高度-->
+    <dimen name="min_keyboard_height">80dp</dimen>
+
+    <dimen name="fs_9sp">9sp</dimen>
+    <dimen name="fs_10sp">10sp</dimen>
+    <dimen name="fs_11sp">11sp</dimen>
+    <dimen name="fs_12sp">12sp</dimen>
+    <dimen name="fs_13sp">13sp</dimen>
+    <dimen name="fs_14sp">14sp</dimen>
+    <dimen name="fs_15sp">15sp</dimen>
+    <dimen name="fs_16sp">16sp</dimen>
+    <dimen name="fs_17sp">17sp</dimen>
+    <dimen name="fs_18sp">18sp</dimen>
+    <dimen name="fs_19sp">19sp</dimen>
+    <dimen name="fs_20sp">20sp</dimen>
+</resources>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="WrapMatch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MatchWrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WrapWrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MatchMatch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MatchAuto">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="AutoMatch">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="WrapAuto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="AutoWrap">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WrapMatch.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="WrapMatch.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="MatchWrap.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="MatchWrap.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="WrapWrap.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="WrapWrap.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="MatchMatch.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="MatchMatch.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="MatchAuto.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="MatchAuto.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="AutoMatch.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="AutoMatch.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="WrapAuto.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="WrapAuto.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="AutoWrap.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="AutoWrap.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="MatchOne">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+    <style name="OneMatch">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="TitleBar_Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="BaseDialogTheme" parent="@android:style/Theme.Dialog">
+        <!-- 去黑边 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 悬浮在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置是否透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 背景 -->
+        <!--     <item name="android:background">@null</item>-->
+        <!-- 窗口背景 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景模糊显示 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 点击空白部分不消失 -->
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+    <style name="BaseDialogTheme.BackgroundDimDisabled">
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <declare-styleable name="RadioButton">
+        <attr name="rbTextSize" format="dimension" />
+        <attr name="rbTextSelectedColor" format="color" />
+        <attr name="rbTextUnselectedColor" format="color" />
+        <attr name="rbText" format="string" />
+        <attr name="rbIconSelectedSrc" format="reference" />
+        <attr name="rbIconUnselectedSrc" format="reference" />
+        <attr name="rbIsSelected" format="boolean" />
+        <attr name="rbLayout" format="reference" />
+    </declare-styleable>
+
+    <style name="Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+</resources>

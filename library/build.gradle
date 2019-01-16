@@ -1,0 +1,74 @@
+apply plugin: 'com.android.library'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration["compileSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["minSdkVersion"]
+        targetSdkVersion globalConfiguration["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0.0"
+//        versionCode globalConfiguration["versionCode"]
+//        versionName globalConfiguration["versionName"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    def LibraryDependencies = rootProject.ext.libary
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api LibraryDependencies.appCompatV7
+    api LibraryDependencies.design
+    api LibraryDependencies.constraintLayout
+    api LibraryDependencies.recyclerview
+    api LibraryDependencies.cardView
+    //net
+    api LibraryDependencies.rxjava
+    api LibraryDependencies.rxandroid
+    api LibraryDependencies.retrofit
+    api LibraryDependencies.retrofit_adapter
+    api LibraryDependencies.retrofit_converter_gson
+    api LibraryDependencies.retrofit_converter_scalars
+    api LibraryDependencies.okttp3_log
+    api LibraryDependencies.gson
+    api LibraryDependencies.disklrucache
+    api LibraryDependencies.persistentCookieJar
+    api LibraryDependencies.stetho
+    //base
+    api LibraryDependencies.rxlifecycle
+    api LibraryDependencies.rxlifecycle_android
+    api LibraryDependencies.rxlifecycle_components
+    api LibraryDependencies.multiDex
+    api LibraryDependencies.freco
+    api LibraryDependencies.frecoOkhttp3
+    debugApi LibraryDependencies.leakCanaryDebug
+    releaseApi LibraryDependencies.leakCanaryRelease
+    api LibraryDependencies.easyPermissions
+    api LibraryDependencies.ultaPtr
+    api LibraryDependencies.eventBus
+    api LibraryDependencies.uCrop
+    api LibraryDependencies.photoView
+    api LibraryDependencies.javaAnnotation
+    api LibraryDependencies.immersiveBar
+    api LibraryDependencies.blurry
+    api LibraryDependencies.adapterHelper
+    api LibraryDependencies.banner
+    api LibraryDependencies.swipeBackLayout
+    api LibraryDependencies.rxBinding
+    api LibraryDependencies.zxingEmbedded
+    api LibraryDependencies.topSnackbar
+    api LibraryDependencies.photoDraweeView
+    api LibraryDependencies.gesturelock
+    api LibraryDependencies.shadow
+}
