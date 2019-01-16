@@ -28,8 +28,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
-import cn.sgxhr.library.R;
-import cn.sgxhr.library.base.utils.StatusBarUtils;
+import com.hrxiang.android.R;
+import com.hrxiang.android.base.utils.StatusBarUtils;
 
 
 /**
