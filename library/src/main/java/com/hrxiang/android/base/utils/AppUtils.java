@@ -17,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,8 +27,6 @@ import java.util.UUID;
  */
 
 public class AppUtils {
-    private static final String SEMICOLON = ";";
-    private static final String PLATFORM = "Android";
     private static final String UNIQUE_ID = "uniqueID";
 
     private static Context getContext() {
@@ -126,34 +125,6 @@ public class AppUtils {
             e.printStackTrace();
         }
         return versionCode;
-    }
-
-    /**
-     * 获取userAgent
-     *
-     * @return 系统相关的信息
-     */
-    public static String getUserAgent(String appId) {
-        StringBuilder userAgent = new StringBuilder();
-        // ==============================================================
-        // User-Agent
-        // 格式：
-        // 应用名称;应用版本;平台;OS版本;OS版本名称;厂商;机型;分辨率(宽*高);安装渠道;网络;
-        // 示例：
-        // HET;2.2.0;Android;4.2.2;N7100XXUEMI6BYTuifei;samsung;GT-I9300;480*800;360;WIFI;
-        userAgent.append(appId).append(SEMICOLON);// 应用名称
-        userAgent.append(getVersionName()).append(SEMICOLON); // App版本
-        userAgent.append(getVersionCode()).append(SEMICOLON);
-        userAgent.append(PLATFORM).append(SEMICOLON);// 平台
-        userAgent.append(getOSVersionName()).append(SEMICOLON); // OS版本
-        userAgent.append(getOSVersionDisplayName()).append(SEMICOLON); // OS显示版本
-        userAgent.append(getBrandName()).append(SEMICOLON); // 品牌厂商
-        userAgent.append(getModelName()).append(SEMICOLON); // 设备
-        userAgent.append(getProductName()).append(SEMICOLON);
-        userAgent.append(DisplayUtils.getScreenWidth()).append("*").append(DisplayUtils.getScreenHeight()).append(SEMICOLON); // 分辨率
-        userAgent.append(getUniqueId()).append(SEMICOLON); // IMEI
-        userAgent.append(getNetType()).append(SEMICOLON); // 网络类型
-        return userAgent.toString();
     }
 
     private static String getUniqueId() {
@@ -268,6 +239,14 @@ public class AppUtils {
      */
     public static String getHost() {
         return Build.HOST;
+    }
+
+    public static String getCpu() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return Arrays.toString(Build.SUPPORTED_ABIS);
+        } else {
+            return Build.CPU_ABI;
+        }
     }
 
     /**
