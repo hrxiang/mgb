@@ -8,7 +8,7 @@
 	     }
  ### step2
  
-      implementation 'com.github.hrxiang:common:1.2'
+      implementation 'com.github.hrxiang:OJBK:1.0'
       
 ### step3
 
