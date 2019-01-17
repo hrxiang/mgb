@@ -6,7 +6,7 @@ import android.os.CountDownTimer;
  * Created by xianghairui on 2018/9/5
  */
 public class CodeTimer {
-    public static final String TAG = CodeTimer.class.getSimpleName();
+    private static final String TAG = CodeTimer.class.getSimpleName();
     private boolean isRunning;//计时进行中
     private boolean isLastOperation;//接着完成上一次计时任务
     private long mMillisInFuture = 60 * 1000;//总时间（单位毫秒）

@@ -19,19 +19,19 @@ public class QRCodeHelper {
     }
 
     public static void openQRCodeScanner(Activity activity, Class<?> cls) {
-        ActivityStartUtils.jumpForResult(activity, cls, RC_GET_QRCODE);
+        ActivityStartUtils.startForResult(activity, cls, RC_GET_QRCODE);
     }
 
     public static void openQRCodeScanner(Fragment fragment, Class<?> cls) {
-        ActivityStartUtils.jumpForResult(fragment, cls, RC_GET_QRCODE);
+        ActivityStartUtils.startForResult(fragment, cls, RC_GET_QRCODE);
     }
 
     public static void openQRCodeScanner(Activity activity, Class<?> cls, ActivityStartUtils.IExtras iExtras) {
-        ActivityStartUtils.jumpForResult(activity, cls, RC_GET_QRCODE, iExtras);
+        ActivityStartUtils.startForResult(activity, cls, RC_GET_QRCODE, iExtras);
     }
 
     public static void openQRCodeScanner(Fragment fragment, Class<?> cls, ActivityStartUtils.IExtras iExtras) {
-        ActivityStartUtils.jumpForResult(fragment, cls, RC_GET_QRCODE, iExtras);
+        ActivityStartUtils.startForResult(fragment, cls, RC_GET_QRCODE, iExtras);
     }
 
     public static void onActivityResult(int requestCode, int resultCode, Intent data, OnQRCodeGetListener l) {

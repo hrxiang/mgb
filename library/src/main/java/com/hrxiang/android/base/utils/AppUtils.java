@@ -37,7 +37,7 @@ public class AppUtils {
     /**
      * 调用系统分享
      */
-    public static void callSysShare(String shareTitle, String shareContent, String chooserTitle) {
+    public static void toSystemShare(String shareTitle, String shareContent, String chooserTitle) {
         Intent intentItem = new Intent(Intent.ACTION_SEND);
         intentItem.setType("text/plain");
         intentItem.putExtra(Intent.EXTRA_SUBJECT, shareTitle);
@@ -129,24 +129,6 @@ public class AppUtils {
     }
 
     /**
-     * 获取进程名字
-     */
-    public static String getProcessName(int pid) {
-        ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
-        if (null != am) {
-            List<ActivityManager.RunningAppProcessInfo> runningApps = am.getRunningAppProcesses();
-            if (null != runningApps) {
-                for (ActivityManager.RunningAppProcessInfo processInfo : runningApps) {
-                    if (processInfo.pid == pid) {
-                        return processInfo.processName;
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    /**
      * 获取userAgent
      *
      * @return 系统相关的信息
@@ -161,11 +143,13 @@ public class AppUtils {
         // HET;2.2.0;Android;4.2.2;N7100XXUEMI6BYTuifei;samsung;GT-I9300;480*800;360;WIFI;
         userAgent.append(appId).append(SEMICOLON);// 应用名称
         userAgent.append(getVersionName()).append(SEMICOLON); // App版本
+        userAgent.append(getVersionCode()).append(SEMICOLON);
         userAgent.append(PLATFORM).append(SEMICOLON);// 平台
         userAgent.append(getOSVersionName()).append(SEMICOLON); // OS版本
         userAgent.append(getOSVersionDisplayName()).append(SEMICOLON); // OS显示版本
         userAgent.append(getBrandName()).append(SEMICOLON); // 品牌厂商
         userAgent.append(getModelName()).append(SEMICOLON); // 设备
+        userAgent.append(getProductName()).append(SEMICOLON);
         userAgent.append(DisplayUtils.getScreenWidth()).append("*").append(DisplayUtils.getScreenHeight()).append(SEMICOLON); // 分辨率
         userAgent.append(getUniqueId()).append(SEMICOLON); // IMEI
         userAgent.append(getNetType()).append(SEMICOLON); // 网络类型
@@ -337,16 +321,36 @@ public class AppUtils {
     /**
      * 获取当前进程名
      */
-    public static String getCurrentProcessName() {
+    public static String getProcessName() {
         String processName = "";
         int pid = android.os.Process.myPid();
         ActivityManager manager = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningAppProcessInfo process : manager.getRunningAppProcesses()) {
-            if (process.pid == pid) {
-                processName = process.processName;
+        if (null != manager) {
+            for (ActivityManager.RunningAppProcessInfo process : manager.getRunningAppProcesses()) {
+                if (process.pid == pid) {
+                    processName = process.processName;
+                }
             }
         }
         return processName;
+    }
+
+    /**
+     * 获取进程名字
+     */
+    public static String getProcessName(int pid) {
+        ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        if (null != am) {
+            List<ActivityManager.RunningAppProcessInfo> runningApps = am.getRunningAppProcesses();
+            if (null != runningApps) {
+                for (ActivityManager.RunningAppProcessInfo processInfo : runningApps) {
+                    if (processInfo.pid == pid) {
+                        return processInfo.processName;
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     /**
@@ -383,10 +387,10 @@ public class AppUtils {
      */
     public static boolean isMainProcess() {
 //        return context.getPackageName().equals(getProcessName(android.os.Process.myPid()));
-        return getContext().getPackageName().equals(getCurrentProcessName());
+        return getContext().getPackageName().equals(getProcessName());
     }
 
-    public static boolean isApkDebugModel() {
+    public static boolean isDebug() {
         ApplicationInfo info = getContext().getApplicationInfo();
         return (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
     }

@@ -15,11 +15,11 @@ public class ActivityStartUtils {
         void with(Intent intent);
     }
 
-    public static void jump(Context context, Class<?> targetActivity) {
-        jump(context, targetActivity, null);
+    public static void start(Context context, Class<?> targetActivity) {
+        start(context, targetActivity, null);
     }
 
-    public static void jump(Context context, Class<?> targetActivity, IExtras iExtras) {
+    public static void start(Context context, Class<?> targetActivity, IExtras iExtras) {
         Intent intent = new Intent(context, targetActivity);
         if (null != iExtras) {
             iExtras.with(intent);
@@ -27,15 +27,15 @@ public class ActivityStartUtils {
         context.startActivity(intent);
     }
 
-    public static void jumpForResult(Activity sourceActivity, Class<?> targetActivity, int requestCode) {
-        jumpForResult(sourceActivity, targetActivity, requestCode, null);
+    public static void startForResult(Activity sourceActivity, Class<?> targetActivity, int requestCode) {
+        startForResult(sourceActivity, targetActivity, requestCode, null);
     }
 
-    public static void jumpForResult(Fragment sourceFragment, Class<?> targetActivity, int requestCode) {
-        jumpForResult(sourceFragment, targetActivity, requestCode, null);
+    public static void startForResult(Fragment sourceFragment, Class<?> targetActivity, int requestCode) {
+        startForResult(sourceFragment, targetActivity, requestCode, null);
     }
 
-    public static void jumpForResult(Activity sourceActivity, Class<?> targetActivity, int requestCode, IExtras iExtras) {
+    public static void startForResult(Activity sourceActivity, Class<?> targetActivity, int requestCode, IExtras iExtras) {
         Intent intent = new Intent(sourceActivity, targetActivity);
         if (null != iExtras) {
             iExtras.with(intent);
@@ -43,7 +43,7 @@ public class ActivityStartUtils {
         sourceActivity.startActivityForResult(intent, requestCode);
     }
 
-    public static void jumpForResult(Fragment sourceFragment, Class<?> targetActivity, int requestCode, IExtras iExtras) {
+    public static void startForResult(Fragment sourceFragment, Class<?> targetActivity, int requestCode, IExtras iExtras) {
         Intent intent = new Intent(sourceFragment.getActivity(), targetActivity);
         if (null != iExtras) {
             iExtras.with(intent);
@@ -51,11 +51,11 @@ public class ActivityStartUtils {
         sourceFragment.startActivityForResult(intent, requestCode);
     }
 
-    public static void result(Activity sourceActivity, int resultCode) {
-        result(sourceActivity, resultCode, null);
+    public static void setResult(Activity sourceActivity, int resultCode) {
+        setResult(sourceActivity, resultCode, null);
     }
 
-    public static void result(Activity sourceActivity, int resultCode, IExtras iExtras) {
+    public static void setResult(Activity sourceActivity, int resultCode, IExtras iExtras) {
         Intent intent = new Intent();
         if (null != iExtras) {
             iExtras.with(intent);

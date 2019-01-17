@@ -20,7 +20,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.hrxiang.android.base.R;
+import com.hrxiang.android.R;
 
 import java.util.Locale;
 

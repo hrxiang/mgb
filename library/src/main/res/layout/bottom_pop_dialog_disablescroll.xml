@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/id_pop_bg"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#40000000">
+                android:id="@+id/id_pop_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#40000000">
 
     <FrameLayout
-        android:id="@+id/id_pop_panel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+            android:id="@+id/id_pop_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
 
     </FrameLayout>
 </RelativeLayout>

@@ -10,14 +10,14 @@ import java.lang.ref.WeakReference;
  * 1，捕获异常
  * 2，使用activity或者fragment的弱引用，防止因handler延时操作造成内存泄漏
  */
-public abstract class BaseWeakReferenceHandler<Hold> extends Handler {
-    public abstract void onHandleMessage(Hold hold, Message msg);
+public abstract class WeakReferenceHandler<Hold> extends Handler {
+    public abstract void handleMessage(Hold hold, Message msg);
 
     public abstract void onException(Hold hold, Exception e);
 
     private WeakReference<Hold> reference;
 
-    public BaseWeakReferenceHandler(Hold hold) {
+    public WeakReferenceHandler(Hold hold) {
         reference = new WeakReference<>(hold);
     }
 
@@ -31,7 +31,7 @@ public abstract class BaseWeakReferenceHandler<Hold> extends Handler {
         try {
             hold = reference.get();
             if (null != hold && null != msg) {
-                onHandleMessage(hold, msg);
+                handleMessage(hold, msg);
             }
         } catch (Exception e) {
             onException(hold, e);

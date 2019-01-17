@@ -33,8 +33,8 @@ public class PhotoHelper {
     private static final String KEY_TAKE_PHOTOS_RESULT = "take_photos_result";
     private static ExecutorService mCompressExecutor = Executors.newFixedThreadPool(3);
     private static Map<String, String> mCompressedMap = Collections.synchronizedMap(new HashMap<String, String>());
-    public final static int RC_ACTION_IMAGE_CAPTURE = 4002;//打开相机
-    public final static int RC_ACTION_PICK = 4003;//打开相册
+    private final static int RC_ACTION_IMAGE_CAPTURE = 4002;//打开相机
+    private final static int RC_ACTION_PICK = 4003;//打开相册
 
     public interface OnPhotoGetListener {
         void onGetPhotoPath(String sourcePath, String processedPath);
@@ -44,11 +44,11 @@ public class PhotoHelper {
         void onStartUCrop(@NonNull Uri source, @NonNull File file);
     }
 
-    private static final class CompressThered implements Runnable {
+    private static final class CompressThread implements Runnable {
         String sourcePath;
         OnPhotoGetListener l;
 
-        public CompressThered(String sourcePath, OnPhotoGetListener l) {
+        public CompressThread(String sourcePath, OnPhotoGetListener l) {
             this.sourcePath = sourcePath;
             this.l = l;
         }
@@ -114,7 +114,7 @@ public class PhotoHelper {
                                 if (null != l) {// 异常返回原图
                                     String path = queryPathByUri(data.getData());
                                     if (needCompress) {
-                                        mCompressExecutor.execute(new CompressThered(path, l));
+                                        mCompressExecutor.execute(new CompressThread(path, l));
                                     } else {
                                         l.onGetPhotoPath(path, path);
                                     }
@@ -124,7 +124,7 @@ public class PhotoHelper {
                             if (null != l) {
                                 String path = queryPathByUri(data.getData());
                                 if (needCompress) {
-                                    mCompressExecutor.execute(new CompressThered(path, l));
+                                    mCompressExecutor.execute(new CompressThread(path, l));
                                 } else {
                                     l.onGetPhotoPath(path, path);
                                 }
@@ -140,7 +140,7 @@ public class PhotoHelper {
                                 if (null != l) {// 异常返回原图
                                     String path = getPhotosPath();
                                     if (needCompress) {
-                                        mCompressExecutor.execute(new CompressThered(path, l));
+                                        mCompressExecutor.execute(new CompressThread(path, l));
                                     } else {
                                         l.onGetPhotoPath(path, path);
                                     }
@@ -150,7 +150,7 @@ public class PhotoHelper {
                             if (null != l) {
                                 String path = getPhotosPath();
                                 if (needCompress) {
-                                    mCompressExecutor.execute(new CompressThered(path, l));
+                                    mCompressExecutor.execute(new CompressThread(path, l));
                                 } else {
                                     l.onGetPhotoPath(path, path);
                                 }
@@ -161,7 +161,7 @@ public class PhotoHelper {
                         if (null != l) {
                             String path = queryPathByUri(Crop.getOutput(data));
                             if (needCompress) {
-                                mCompressExecutor.execute(new CompressThered(path, l));
+                                mCompressExecutor.execute(new CompressThread(path, l));
                             } else {
                                 l.onGetPhotoPath(path, path);
                             }
@@ -174,7 +174,7 @@ public class PhotoHelper {
                 if (null != l) {
                     String path = queryPathByUri(data.getData());
                     if (needCompress) {
-                        mCompressExecutor.execute(new CompressThered(path, l));
+                        mCompressExecutor.execute(new CompressThread(path, l));
                     } else {
                         l.onGetPhotoPath(path, path);
                     }
@@ -230,16 +230,18 @@ public class PhotoHelper {
         activity.startActivityForResult(intent, RC_ACTION_PICK);*/
 
         Intent intent = new Intent(Intent.ACTION_PICK);// 激活系统图库，选择一张图片
-        intent.setType("image/*");
-        intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);//使用以上这种模式，并添加以上两句
-        activity.startActivityForResult(intent, RC_ACTION_PICK);// 开启一个带有返回值的Activity，请求码为PHOTO_REQUEST_GALLERY
+        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+//        intent.setType("image/*");
+//        intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);//使用以上这种模式，并添加以上两句
+        activity.startActivityForResult(intent, RC_ACTION_PICK);// 开启一个带有返回值的Activity，RC_ACTION_PICK
     }
 
     public static void onOpenAlbum(Fragment fragment) {
         Intent intent = new Intent(Intent.ACTION_PICK);// 激活系统图库，选择一张图片
-        intent.setType("image/*");
-        intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);//使用以上这种模式，并添加以上两句
-        fragment.startActivityForResult(intent, RC_ACTION_PICK);// 开启一个带有返回值的Activity，请求码为PHOTO_REQUEST_GALLERY
+        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+//        intent.setType("image/*");
+//        intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);//使用以上这种模式，并添加以上两句
+        fragment.startActivityForResult(intent, RC_ACTION_PICK);// 开启一个带有返回值的Activity，RC_ACTION_PICK
     }
 
     private static File getOutputPhoto(boolean isCrop) {

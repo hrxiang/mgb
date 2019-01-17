@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.*;
-import com.hrxiang.android.base.R;
+import com.hrxiang.android.R;
 
 
 /**

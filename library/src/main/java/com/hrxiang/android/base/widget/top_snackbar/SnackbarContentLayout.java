@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.hrxiang.android.base.R;
+import com.hrxiang.android.R;
 
 import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 

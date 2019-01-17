@@ -57,7 +57,7 @@ public class BaseApplication extends Application {
      * default true
      */
     protected boolean isDebug() {
-        return AppUtils.isApkDebugModel();
+        return AppUtils.isDebug();
     }
 
     @Override

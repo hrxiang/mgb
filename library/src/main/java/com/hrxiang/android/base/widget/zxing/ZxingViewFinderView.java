@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import com.google.zxing.ResultPoint;
-import com.hrxiang.android.base.R;
+import com.hrxiang.android.R;
 import com.journeyapps.barcodescanner.ViewfinderView;
 
 import java.util.ArrayList;

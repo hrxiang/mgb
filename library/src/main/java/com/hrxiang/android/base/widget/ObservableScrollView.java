@@ -5,7 +5,7 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
-import com.hrxiang.android.base.utils.handler.BaseWeakReferenceHandler;
+import com.hrxiang.android.base.utils.handler.WeakReferenceHandler;
 
 
 public class ObservableScrollView extends ScrollView {
@@ -38,19 +38,19 @@ public class ObservableScrollView extends ScrollView {
 
         void onScrollStateChanged(ObservableScrollView view, int newState);
 
-        void onScrolltoTop();
+        void onScrollToTop();
 
-        void onScrolltoBottom();
+        void onScrollToBottom();
     }
 
-    private static class StateHandler extends BaseWeakReferenceHandler {
+    private static class StateHandler extends WeakReferenceHandler {
 
         private StateHandler(Object o) {
             super(o);
         }
 
         @Override
-        public void onHandleMessage(Object o, Message msg) {
+        public void handleMessage(Object o, Message msg) {
             if (o instanceof ObservableScrollView) {
                 ObservableScrollView os = (ObservableScrollView) o;
                 if (os.isEnabledScrollListener()) {
@@ -80,7 +80,7 @@ public class ObservableScrollView extends ScrollView {
                 mStateHandler.sendEmptyMessageDelayed(0, 5);
             } else if (ev.getAction() == MotionEvent.ACTION_MOVE) {
                 mLastY = getScrollY();
-                if (isScrolltoBottom() || getScrollY() <= 0) {
+                if (isScrollToBottom() || getScrollY() <= 0) {
                     mOnScrollListener.onScrollStateChanged(ObservableScrollView.this, SCROLL_STATE_IDLE);
                 } else {
                     mOnScrollListener.onScrollStateChanged(ObservableScrollView.this, SCROLL_STATE_TOUCH_SCROLL);
@@ -96,9 +96,9 @@ public class ObservableScrollView extends ScrollView {
         if (isEnabledScrollListener()) {
             mOnScrollListener.onScrollChanged(this, x, y, oldx, oldy);
             if (getScrollY() + getHeight() >= computeVerticalScrollRange()) {
-                mOnScrollListener.onScrolltoBottom();
+                mOnScrollListener.onScrollToBottom();
             } else if (getScrollY() == 0) {
-                mOnScrollListener.onScrolltoTop();
+                mOnScrollListener.onScrollToTop();
             } else {//other
 
             }
@@ -109,7 +109,7 @@ public class ObservableScrollView extends ScrollView {
         return null != mOnScrollListener;
     }
 
-    public boolean isScrolltoBottom() {
+    public boolean isScrollToBottom() {
         return getScrollY() + getHeight() >= computeVerticalScrollRange();
     }
 }
