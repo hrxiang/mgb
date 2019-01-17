@@ -1,4 +1,7 @@
-# common
+
+[![](https://jitpack.io/v/hrxiang/OJBK.svg)](https://jitpack.io/#hrxiang/OJBK)
+
+
 ### step1
         allprojects {
 		repositories {
