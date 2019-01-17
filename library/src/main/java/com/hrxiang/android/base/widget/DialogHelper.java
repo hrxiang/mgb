@@ -112,9 +112,9 @@ public class DialogHelper {
         public Dialog create() {
             if (-1 == themeResId) {
                 if (mBackgroundDimEnabled) {
-                    themeResId = R.style.BaseDialogTheme;
+                    themeResId = R.style.DialogTheme;
                 } else {
-                    themeResId = R.style.BaseDialogTheme_BackgroundDimDisabled;
+                    themeResId = R.style.DialogTheme_BackgroundDimDisabled;
                 }
             }
             mDialog = new Dialog(mContext, themeResId);

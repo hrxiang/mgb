@@ -22,7 +22,7 @@ import android.view.*;
 import android.view.accessibility.AccessibilityManager;
 import android.view.animation.Animation;
 import android.widget.FrameLayout;
-import com.hrxiang.android.base.R;
+import com.hrxiang.android.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
