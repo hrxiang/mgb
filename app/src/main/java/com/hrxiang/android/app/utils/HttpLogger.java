@@ -1,6 +1,6 @@
 package com.hrxiang.android.app.utils;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.elvishew.xlog.XLog;
 import okhttp3.logging.HttpLoggingInterceptor;
 
