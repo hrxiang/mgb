@@ -1,6 +1,6 @@
 package com.hrxiang.android.base.ui.fragment;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import pub.devrel.easypermissions.EasyPermissions;
 
 import java.util.List;

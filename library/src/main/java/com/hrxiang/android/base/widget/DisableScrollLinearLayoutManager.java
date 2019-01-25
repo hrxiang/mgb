@@ -1,7 +1,7 @@
 package com.hrxiang.android.base.widget;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 /**
  * Created by xianghairui on 2018/8/31

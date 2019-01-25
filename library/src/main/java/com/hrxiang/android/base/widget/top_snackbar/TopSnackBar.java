@@ -2,9 +2,9 @@ package com.hrxiang.android.base.widget.top_snackbar;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.*;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
+import androidx.annotation.*;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -15,7 +15,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.hrxiang.android.R;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 
 /**

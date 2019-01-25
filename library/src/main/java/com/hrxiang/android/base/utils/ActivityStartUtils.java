@@ -3,7 +3,7 @@ package com.hrxiang.android.base.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by xianghairui on 2018/2/18.

@@ -1,6 +1,6 @@
 package com.hrxiang.android.net.request;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.hrxiang.android.net.body.UploadProgressRequestBody;
 import com.hrxiang.android.net.callback.UploadProgressCallback;
 import com.hrxiang.android.net.core.HttpFactory;

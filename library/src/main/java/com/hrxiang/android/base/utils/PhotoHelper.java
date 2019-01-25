@@ -10,8 +10,8 @@ import android.os.Build;
 import android.os.Handler;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import com.hrxiang.android.base.utils.ucrop.Crop;
 import com.yalantis.ucrop.UCropActivity;
 

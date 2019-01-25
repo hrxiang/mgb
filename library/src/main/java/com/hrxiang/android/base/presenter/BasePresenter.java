@@ -1,6 +1,6 @@
 package com.hrxiang.android.base.presenter;
 
-import android.arch.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleOwner;
 import com.hrxiang.android.base.presenter.contract.BaseContract;
 
 import java.lang.ref.WeakReference;

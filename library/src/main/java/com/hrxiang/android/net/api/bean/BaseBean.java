@@ -1,6 +1,6 @@
 package com.hrxiang.android.net.api.bean;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.hrxiang.android.net.utils.GsonFactory;
 
 import java.io.Serializable;

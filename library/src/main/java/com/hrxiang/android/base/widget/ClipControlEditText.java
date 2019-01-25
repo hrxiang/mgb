@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by xianghairui on 2018/10/10.
  */
-public class ClipControlEditText extends android.support.v7.widget.AppCompatEditText {
+public class ClipControlEditText extends androidx.appcompat.widget.AppCompatEditText {
   //事件监听器
   private ArrayList<OnEditTextClipListener> listeners;
   private ClipboardManager clipboard;

@@ -1,6 +1,6 @@
 package com.hrxiang.android.net.body;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.hrxiang.android.net.callback.UploadProgressCallback;
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

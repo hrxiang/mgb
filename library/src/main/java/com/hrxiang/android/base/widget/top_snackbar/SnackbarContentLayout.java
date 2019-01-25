@@ -2,14 +2,14 @@ package com.hrxiang.android.base.widget.top_snackbar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.RestrictTo;
+import androidx.annotation.RestrictTo;
 import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.hrxiang.android.R;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 
 /**

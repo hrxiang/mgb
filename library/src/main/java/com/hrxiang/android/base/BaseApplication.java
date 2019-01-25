@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.support.multidex.MultiDex;
+import androidx.multidex.MultiDex;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.hrxiang.android.base.utils.AppUtils;
 import com.hrxiang.android.base.utils.ContextProvider;
