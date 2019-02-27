@@ -2,7 +2,7 @@ package com.hrxiang.android.net.cache;
 
 import com.hrxiang.android.net.cache.core.ICache;
 import com.hrxiang.android.net.subscribe.SimpleSubscribe;
-import com.hrxiang.android.net.utils.AESUtils;
+import com.hrxiang.android.net.utils.AesUtils;
 import com.hrxiang.android.net.utils.GsonFactory;
 import com.hrxiang.android.net.utils.MD5Utils;
 import com.hrxiang.android.net.utils.StringUtils;
@@ -38,7 +38,7 @@ public final class DiskCache implements ICache {
         try {
             if (null == cache) return;
             key = MD5Utils.md5(key);
-            value = AESUtils.encrypt(key, value);
+            value = AesUtils.encrypt(key, value);
             if (StringUtils.isEmpty(key) || StringUtils.isEmpty(value)) return;
             time = time == 0 ? CACHE_NEVER_EXPIRE : time;
             cache.remove(key);
@@ -78,7 +78,7 @@ public final class DiskCache implements ICache {
                     int index = content.indexOf("@createTime");
                     if (createTime + expireMills > System.currentTimeMillis()
                             || expireMills == CACHE_NEVER_EXPIRE) {
-                        return AESUtils.decrypt(key, content.substring(0, index));
+                        return AesUtils.decrypt(key, content.substring(0, index));
                     } else {
                         cache.remove(key);
                     }

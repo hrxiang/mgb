@@ -13,7 +13,7 @@ import java.security.SecureRandom;
  * Created by xianghairui on 2018/3/28.
  */
 
-public class AESUtils {
+public class AesUtils {
     /**
      * 加密
      */

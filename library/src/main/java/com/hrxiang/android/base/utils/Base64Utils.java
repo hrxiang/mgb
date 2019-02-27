@@ -1,5 +1,7 @@
 package com.hrxiang.android.base.utils;
 
+import android.util.Base64;
+
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -116,5 +118,23 @@ public class Base64Utils {
             sb.append((char) (((b3 & 0x03) << 6) | b4));
         }
         return sb.toString().getBytes("iso8859-1");
+    }
+
+    /***
+     *CRLF：这个参数看起来比较眼熟，它就是Win风格的换行符，意思就是使用CR LF这一对作为一行的结尾而不是Unix风格的LF
+     *DEFAULT：这个参数是默认，使用默认的方法来加密
+     *NO_PADDING：这个参数是略去加密字符串最后的“=”
+     *NO_WRAP：这个参数意思是略去所有的换行符（设置后CRLF就没用了）
+     *URL_SAFE：这个参数意思是加密时不使用对URL和文件名有特殊意义的字符来作为加密字符，具体就是以-和_取代+和/
+     */
+
+    // 加密
+    public static String encode2(byte[] key) throws Exception {
+        return new String(Base64.encode(key, Base64.NO_WRAP), "utf-8");
+    }
+
+    // 解密
+    public static byte[] decode2(String str) {
+        return Base64.decode(str, Base64.NO_WRAP);
     }
 }
