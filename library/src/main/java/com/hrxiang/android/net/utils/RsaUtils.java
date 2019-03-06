@@ -1,13 +1,13 @@
 package com.hrxiang.android.net.utils;
 
 import android.util.Base64;
-import com.hrxiang.android.base.utils.Base64Utils;
 
 import javax.crypto.Cipher;
-import java.io.*;
-import java.security.*;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.spec.InvalidKeySpecException;
+import java.io.ByteArrayOutputStream;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
@@ -18,7 +18,9 @@ public class RsaUtils {
     /**
      * 加密算法RSA
      */
-    public static final String KEY_ALGORITHM = "RSA";
+    private static final String KEY_ALGORITHM = "RSA";
+    private static final String TRANSFORMATION = "RSA/ECB/PKCS1Padding";
+//    public static final String  TRANSFORMATION = "RSA/NONE/OAEPPadding";
 
     /**
      * RSA最大加密明文大小
@@ -36,12 +38,12 @@ public class RsaUtils {
         // 获取keyspec （java.security.spec.X509EncodedKeySpec）
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyByte);
         // 获取keyfactory （java.security.KeyFactory）
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
 //        KeyFactory keyFactory = KeyFactory.getInstance("RSA", "BC");
         // 获取公钥 （java.security.PublicKey）
         PublicKey publicKey = keyFactory.generatePublic(keySpec);
         // 初始化加密类
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(TRANSFORMATION);
         cipher.init(Cipher.ENCRYPT_MODE, publicKey);
         // 加密后获取字节数组 text为要加密的字符串
         byte[] enBytes = cipher.doFinal(source.getBytes());
@@ -58,10 +60,10 @@ public class RsaUtils {
         byte[] keyBytes = Base64.decode(privateKeyStr, Base64.NO_WRAP);
         // 得到私钥对象
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
-        KeyFactory kf = KeyFactory.getInstance("RSA");
+        KeyFactory kf = KeyFactory.getInstance(KEY_ALGORITHM);
         PrivateKey keyPrivate = kf.generatePrivate(keySpec);
         // 解密数据
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(TRANSFORMATION);
         cipher.init(Cipher.DECRYPT_MODE, keyPrivate);
         byte[] decryptBytes = cipher.doFinal(encryptedBytes);
 //        byte[] arr = cp.doFinal(encryptedStr.getBytes());
@@ -81,12 +83,12 @@ public class RsaUtils {
      */
     public static byte[] decryptByPrivateKey(byte[] encryptedData, String privateKey)
             throws Exception {
-        byte[] keyBytes = Base64Utils.decode(privateKey);
-//        byte[] keyBytes = Base64.decode(privateKey, Base64.NO_WRAP);
+//        byte[] keyBytes = Base64Utils.decode(privateKey);
+        byte[] keyBytes = Base64.decode(privateKey, Base64.NO_WRAP);
         PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);
-        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM, "BC");
+        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         Key privateK = keyFactory.generatePrivate(pkcs8KeySpec);
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(TRANSFORMATION);
         cipher.init(Cipher.DECRYPT_MODE, privateK);
         int inputLen = encryptedData.length;
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -128,7 +130,7 @@ public class RsaUtils {
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         Key publicK = keyFactory.generatePublic(x509KeySpec);
         // 对数据加密
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        Cipher cipher = Cipher.getInstance(TRANSFORMATION);
         cipher.init(Cipher.ENCRYPT_MODE, publicK);
         int inputLen = data.length;
         ByteArrayOutputStream out = new ByteArrayOutputStream();

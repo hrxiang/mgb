@@ -4,7 +4,7 @@ import com.hrxiang.android.net.cache.core.ICache;
 import com.hrxiang.android.net.subscribe.SimpleSubscribe;
 import com.hrxiang.android.net.utils.AesUtils;
 import com.hrxiang.android.net.utils.GsonFactory;
-import com.hrxiang.android.net.utils.MD5Utils;
+import com.hrxiang.android.net.utils.Md5Utils;
 import com.hrxiang.android.net.utils.StringUtils;
 import com.jakewharton.disklrucache.DiskLruCache;
 import io.reactivex.BackpressureStrategy;
@@ -37,7 +37,7 @@ public final class DiskCache implements ICache {
     public void put(String key, String value, long time) {
         try {
             if (null == cache) return;
-            key = MD5Utils.md5(key);
+            key = Md5Utils.md5(key);
             value = AesUtils.encrypt(key, value);
             if (StringUtils.isEmpty(key) || StringUtils.isEmpty(value)) return;
             time = time == 0 ? CACHE_NEVER_EXPIRE : time;
@@ -62,7 +62,7 @@ public final class DiskCache implements ICache {
     public String get(String key) {
         try {
             if (null == cache) return null;
-            key = MD5Utils.md5(key);
+            key = Md5Utils.md5(key);
             if (null == key) return null;
             DiskLruCache.Snapshot snapshot = cache.get(key);
             if (null != snapshot) {
@@ -94,7 +94,7 @@ public final class DiskCache implements ICache {
     public boolean contains(String key) {
         try {
             if (null != cache) {
-                key = MD5Utils.md5(key);
+                key = Md5Utils.md5(key);
                 return null != key && null != cache.get(key);
             }
         } catch (IOException e) {
@@ -107,7 +107,7 @@ public final class DiskCache implements ICache {
     public void remove(String key) {
         try {
             if (null != cache) {
-                key = MD5Utils.md5(key);
+                key = Md5Utils.md5(key);
                 if (null != key) {
                     cache.remove(key);
                 }
