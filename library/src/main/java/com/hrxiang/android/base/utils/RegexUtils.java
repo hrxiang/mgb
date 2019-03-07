@@ -60,6 +60,11 @@ public class RegexUtils {
     public static final String LETTER_NUMBER_UNDERLINE_REGEXP = "^//w+$";
 
     /**
+     * 车牌号码
+     */
+    public static final String PLATE_NUMBER = "^[\\u0391-\\uFFE5]{1}[a-zA-Z0-9]{6}$";
+
+    /**
      * @param regex 正则表达式
      * @param input 被验证的字符串
      * @return true符合规则，false不符合规则
