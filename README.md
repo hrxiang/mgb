@@ -10,7 +10,7 @@
 	     }
  ### step2
  
-      implementation 'com.github.hrxiang:Tag:1.0'
+      implementation 'com.github.hrxiang:mgb:1.0.0'
       
 ### step3
 
