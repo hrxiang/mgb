@@ -66,8 +66,7 @@ public class BaseFragment
     }
 */
 
-    protected BasePresenter[] createPresenters() {
-        return null;
+    protected void createPresenters() {
     }
 
     @Override
