@@ -1,5 +1,4 @@
-
-[![](https://jitpack.io/v/hrxiang/OJBK.svg)](https://jitpack.io/#hrxiang/OJBK)
+[![](https://jitpack.io/v/hrxiang/mgb.svg)](https://jitpack.io/#hrxiang/mgb)
 
 
 ### step1
@@ -11,7 +10,7 @@
 	     }
  ### step2
  
-      implementation 'com.github.hrxiang:OJBK:1.0'
+      implementation 'com.github.hrxiang:mgb:1.0.0'
       
 ### step3
 
