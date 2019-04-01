@@ -19,14 +19,20 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        onCreate1();
+        if (AppUtils.isMainProcess()) {
+            onCreate1();
+        }
     }
 
     protected void onCreate1() {
         initAppLanguage();
+        initHttp();
         initLogger();
         initFresco();
         initLeakCanary();
+    }
+
+    protected void initHttp() {
     }
 
     protected void initAppLanguage() {
