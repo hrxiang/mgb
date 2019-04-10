@@ -14,15 +14,15 @@ public final class ContextProvider {
     }
 
     public static Context getContext() {
-        return application.getApplicationContext();
+        return application.getBaseContext();
     }
 
     /**
      * class DemoApp extends Application{
-     *     protected void attachBaseContext(Context base) {
-     *        super.attachBaseContext(base);
-     *        ContextProvider.attachApp(this);
-     *     }
+     * protected void attachBaseContext(Context base) {
+     * super.attachBaseContext(base);
+     * ContextProvider.attachApp(this);
+     * }
      * }
      **/
     public static void attachApp(Application app) {

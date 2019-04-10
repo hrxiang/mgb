@@ -46,6 +46,7 @@ dependencies {
     api LibraryDependencies.disklrucache
     api LibraryDependencies.persistentCookieJar
     api LibraryDependencies.stetho
+    api LibraryDependencies.logger
     //base
     api LibraryDependencies.rxlifecycle
     api LibraryDependencies.rxlifecycle_android

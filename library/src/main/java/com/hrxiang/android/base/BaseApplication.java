@@ -10,6 +10,8 @@ import com.hrxiang.android.base.utils.AppUtils;
 import com.hrxiang.android.base.utils.ContextProvider;
 import com.hrxiang.android.base.utils.LanguageHelper;
 import com.hrxiang.android.base.utils.fresco.ImageConfig;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 /**
  * Created by xianghairui on 2018/12/14.
@@ -57,6 +59,14 @@ public class BaseApplication extends Application {
      * 打印日志
      */
     protected void initLogger() {
+//        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+//                .showThreadInfo(false)  // (Optional) Whether to show thread info or not. Default true
+//                .methodCount(0)         // (Optional) How many method line to show. Default 2
+//                .methodOffset(7)        // (Optional) Hides internal method calls up to offset. Default 5
+//                .logStrategy(customLog) // (Optional) Changes the log strategy to print out. Default LogCat
+//                .tag("My custom tag")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
+//                .build();
+        Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
     /**

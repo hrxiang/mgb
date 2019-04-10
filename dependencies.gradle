@@ -35,6 +35,7 @@ ext {
             rxlifecycle_android       : "com.trello.rxlifecycle2:rxlifecycle-android:2.2.0",
             // If you want pre-written Activities and Fragments you can subclass as providers
             rxlifecycle_components    : "com.trello.rxlifecycle2:rxlifecycle-components:2.2.0",
+            logger                    : "com.orhanobut:logger:2.2.0",
 
             multiDex                  : 'androidx.multidex:multidex:2.0.0',
             freco                     : "com.facebook.fresco:fresco:1.7.1",
