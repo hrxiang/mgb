@@ -257,14 +257,13 @@ public class FileUtils {
     /**
      * 读取assets下的txt文件，返回utf-8 String
      *
-     * @param context
      * @param fileName
      * @return
      */
-    public static String readAssetsJson(Context context, String fileName) {
+    public static String readJsonFromAssetsFile(String fileName) {
         try {
             //Return an AssetManager instance for your application's package
-            InputStream is = context.getAssets().open(fileName);
+            InputStream is = ContextProvider.getContext().getAssets().open(fileName);
             int size = is.available();
             // Read the entire asset into a local byte buffer.
             byte[] buffer = new byte[size];
